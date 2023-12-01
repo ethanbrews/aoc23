@@ -8,11 +8,11 @@ public static class SolutionRunner
         .Where(t => t.GetInterfaces().Contains(typeof(IDay)) && t.GetConstructor(Type.EmptyTypes) is not null)
         .ToArray();
     
-    private static IDay FindSolution(string query) => Activator.CreateInstance(
+    private static IDay FindSolutionByName(string query) => Activator.CreateInstance(
         SolutionTypes.First(d => d.Name == query || d.Name[3..] == query)
     ) as IDay ?? throw new ArgumentException("The query does not match any solutions.", nameof(query));
 
-    public static async Task RunSolutionAsync(string query) => await RunSolutionAsync(FindSolution(query));
+    public static async Task RunSolutionByNameAsync(string query) => await RunSolutionAsync(FindSolutionByName(query));
 
     private static string InputFileName(IDay day) => Path.Combine("Input", day.GetType().Name + ".txt");
 
