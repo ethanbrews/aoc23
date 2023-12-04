@@ -4,7 +4,7 @@ using System.Text.RegularExpressions;
 namespace AdventOfCode.Days;
 
 [ChallengeName("Trebuchet?!")]
-public partial class Day01 : IDay
+public class Day01 : IDay
 {
     public object SolvePartOne(string input) => Solve(input, @"\d");
 

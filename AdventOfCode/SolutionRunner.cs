@@ -23,7 +23,13 @@ public static class SolutionRunner
     {
         Console.WriteLine($"Running {day.GetType().Name}: {ChallengeName(day)}");
         var inputText = await File.ReadAllTextAsync(InputFileName(day));
-        Console.WriteLine("Part One: " + day.SolvePartOne(inputText));
-        Console.WriteLine("Part Two: " + day.SolvePartTwo(inputText));
+        try
+        {
+            Console.WriteLine("Part One: " + day.SolvePartOne(inputText));
+            Console.WriteLine("Part Two: " + day.SolvePartTwo(inputText));
+        }
+        catch (NotImplementedException)
+        {
+        }
     }
 }
